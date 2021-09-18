@@ -28,11 +28,11 @@ export class AuthService {
     }
 
     public signUp() {
-
+        return this.http.post(this.baseUrl + 'auth/register', 'tt').toPromise();
     }
 
     public logOut() {
-        
+
     }
 
     public getToke() {
