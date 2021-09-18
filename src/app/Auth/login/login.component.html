@@ -1,0 +1,14 @@
+<div>
+    <form [formGroup]="loginForm" (ngSubmit)='onSubmit()'>
+        <div>
+            <label for="">Email :</label>
+            <input type="email" formControlName="email">
+            <div *ngIf="getFormField('email')?.hasError('required')"></div>
+        </div>
+        <div>
+            <label for="">Password</label>
+            <input type="password" formControlName="password">
+        </div>
+        <button type="submit">submit</button>
+    </form>
+</div>
