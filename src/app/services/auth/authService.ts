@@ -24,7 +24,7 @@ export class AuthService {
                 private http: HttpClient) { }
   
     public loginUser(user: User) {
-        return this.http.post<User>(this.baseUrl + "auth/signin", user).toPromise();
+        return this.http.post(this.baseUrl + "auth/signin", user).toPromise();
     }
 
     public signUp() {
