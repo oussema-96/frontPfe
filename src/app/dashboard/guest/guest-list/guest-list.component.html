@@ -14,6 +14,7 @@
                 <th>Date de naissance</th>
                 <th>Date d'activation</th>
                 <th>Date d'expiration</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,10 @@
                 <td>{{guest.birthDate}}</td>
                 <td>{{guest.activationDate}}</td>
                 <td>{{guest.expirationDate}}</td>
+                <td>
+                    <button class="btn btn-warning">Modifier</button>
+                    <button class="btn btn-danger">Supprimer</button>
+                </td>
             </tr>
         </tbody>
     </table>

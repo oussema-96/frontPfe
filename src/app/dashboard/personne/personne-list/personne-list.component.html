@@ -15,6 +15,7 @@
                 <th>Date d'activation</th>
                 <th>Date d'expiration</th>
                 <th>Poste</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +32,10 @@
                 <td>{{personne.activationDate}}</td>
                 <td>{{personne.expirationDate}}</td>
                 <td>{{personne.position}}</td>
+                <td>
+                    <button class="btn btn-warning">Modifier</button>
+                    <button class="btn btn-danger">Supprimer</button>
+                </td>
             </tr>
         </tbody>
     </table>
