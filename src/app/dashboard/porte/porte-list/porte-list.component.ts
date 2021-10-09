@@ -11,11 +11,32 @@ export class PorteListComponent implements OnInit {
 
   constructor() {
     this.portes = [
-      { name: 'Frank', type: 'Murphy', department: 'frank.murphy@test.com' },
-      { name: 'Vic', type: 'Reynolds', department: 'vic.reynolds@test.com' },
-      { name: 'Gina', type: 'Jabowski', department: 'gina.jabowski@test.com' },
-      { name: 'Jessi', type: 'Glaser', department: 'jessi.glaser@test.com' },
-      { name: 'Jay', type: 'Bilzerian', department: 'jay.bilzerian@test.com' }
+      { name: 'SI1', type: 'Entrée', department: 'Service Industriel' },
+      { name: 'SI1', type: 'Sortie', department: 'Service Industriel' },
+      { name: 'SI2', type: 'Entrée', department: 'Service Industriel' },
+      { name: 'SI2', type: 'Sortie', department: 'Service Industriel' },
+      { name: 'SI3', type: 'Entrée', department: 'Service Industriel' },
+      { name: 'SI3', type: 'Sortie', department: 'Service Industriel' },
+      { name: 'SI4', type: 'Entrée', department: 'Service Industriel' },
+      { name: 'SI4', type: 'Sortie', department: 'Service Industriel' },
+      { name: 'M1', type: 'Entrée', department: 'Marketing' },
+      { name: 'M1', type: 'Sortie', department: 'Marketing' },
+      { name: 'M2', type: 'Entrée', department: 'Marketing' },
+      { name: 'M2', type: 'Sortie', department: 'Marketing' },
+      { name: 'M3', type: 'Entrée', department: 'Marketing' },
+      { name: 'M3', type: 'Sortie', department: 'Marketing' },
+      { name: 'M4', type: 'Entrée', department: 'Marketing' },
+      { name: 'M4', type: 'Sortie', department: 'Marketing' },
+      { name: 'DF1', type: 'Entrée', department:'Direction Finacière' },
+      { name: 'DF1', type: 'Sortie', department:'Direction Finacière' },
+      { name: 'DF2', type: 'Entrée', department:'Direction Finacière' },
+      { name: 'DF2', type: 'Sortie', department:'Direction Finacière' },
+      { name: 'DF3', type: 'Entrée', department:'Direction Finacière' },
+      { name: 'DF3', type: 'Sortie', department:'Direction Finacière' },
+      { name: 'DF4', type: 'Entrée', department:'Direction Finacière' },
+      { name: 'DF4', type: 'Sortie', department:'Direction Finacière' },
+     
+
     ];
   }
 

@@ -11,11 +11,11 @@ export class DepartmentListComponent implements OnInit {
 
   constructor() {
     this.departments = [
-      { firstName: 'Frank', lastName: 'Murphy', email: 'frank.murphy@test.com', role: 'User' },
-      { firstName: 'Vic', lastName: 'Reynolds', email: 'vic.reynolds@test.com', role: 'Admin' },
-      { firstName: 'Gina', lastName: 'Jabowski', email: 'gina.jabowski@test.com', role: 'Admin' },
-      { firstName: 'Jessi', lastName: 'Glaser', email: 'jessi.glaser@test.com', role: 'User' },
-      { firstName: 'Jay', lastName: 'Bilzerian', email: 'jay.bilzerian@test.com', role: 'User' }
+      { Name: 'Service Commercial', Doors: 'SC1, SC2, SC3, SC4, SC5, SC6' },
+      { Name: 'Marketing', Doors: 'M1, M2, M3, M4, M5, M6'  },
+      { Name: 'Direction finacère', Doors: 'DF1, DF2, DF3, DF4, DF5, DF6'  },
+      { Name: 'Service industriel', Doors: 'SI1, SI2, SI3, SI4, SI5, SI6'  },
+      { Name: 'Ressources humaines', Doors: 'RH1, RH2, RH3, RH4, RH5, RH6' }
     ];
   }
 
