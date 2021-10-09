@@ -1,15 +1,48 @@
-<nav class="sidebar-nav">
-    <ul id="sidebarnav">
-        <!-- First level menu -->
-        <li class="sidebar-item" [class.active]="showMenu === sidebarnavItem.title" *ngFor="let sidebarnavItem of sidebarnavItems"
-            [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
-            <div class="nav-small-cap" *ngIf="sidebarnavItem.extralink === true">{{sidebarnavItem.title}}</div>
-            <a class="sidebar-link waves-effect waves-dark" [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
-                [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink;" (click)="addExpandClass(sidebarnavItem.title)"
-                [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
-                <i [ngClass]="[sidebarnavItem.icon]"></i>
-                <span class="hide-menu">{{sidebarnavItem.title}}</span>
+<nav id="sidebar" class="sidebar" [ngClass]="{'sidebar-bg' : hasBackgroundImage()}">
+  <div class="sidebar-content">
+    <perfect-scrollbar>
+      <div class="sidebar-header">
+        <a href="#">SOCIETE</a>
+        <a href="" (click)='logout()'>Logout</a>
+      </div>
+
+      <div class="sidebar-profile">
+        <div class="user-pic">
+          <img class="img-responsive img-rounded" src="assets/img/user.jpg" alt="User picture">
+        </div>
+        <div class="user-info">
+          <span class="user-name">Oussama
+            <strong>Zmerli</strong>
+          </span>
+          <span class="user-role">Administrator</span>
+        </div>
+      </div>
+      <div class="sidebar-menu">
+        <ul>
+          <li *ngFor="let menu of menus" [ngClass]="{'active': menu.active , 'sidebar-dropdown':menu.type === 'dropdown' , 'header-menu':menu.type === 'header'}">
+            <span *ngIf="menu.type === 'header'">{{menu.title}}</span>
+            <a *ngIf="menu.type !== 'header' && menu.type !== 'dropdown'" href="{{menu.path}}" (click)='toggle(menu)'>
+              <i class="{{menu.icon}}"></i>
+              <span>{{menu.title}}</span>
+              <span *ngIf="menu.badge" class="badge badge-pill" [ngClass]="menu.badge.class">{{menu.badge.text}}</span>
             </a>
-        </li>
-    </ul>
+            <a *ngIf="menu.type !== 'header' && menu.type === 'dropdown'" href="#" (click)='toggle(menu)'>
+              <i class="{{menu.icon}}"></i>
+              <span>{{menu.title}}</span>
+              <span *ngIf="menu.badge" class="badge badge-pill" [ngClass]="menu.badge.class">{{menu.badge.text}}</span>
+            </a>
+            <div *ngIf="menu.type === 'dropdown'" class="sidebar-submenu" [@slide]="getState(menu)">
+              <ul>
+                <li *ngFor="let submenu of menu.submenus">
+                  <a href="{{submenu.path}}"> {{submenu.title}}
+                    <span *ngIf="submenu.badge" class="badge badge-pill" [ngClass]="submenu.badge.class">{{submenu.badge.text}}</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </perfect-scrollbar>
+  </div>
 </nav>

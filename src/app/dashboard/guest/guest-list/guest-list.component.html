@@ -1,0 +1,19 @@
+<h3 class="p-3 text-center">Guests</h3>
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let guest of guests">
+                <td>{{guest.firstName}} {{guest.lastName}}</td>
+                <td>{{guest.email}}</td>
+                <td>{{guest.role}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

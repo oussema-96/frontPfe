@@ -1,0 +1,19 @@
+<h3 class="p-3 text-center">Portes</h3>
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let porte of portes">
+                <td>{{porte.firstName}} {{porte.lastName}}</td>
+                <td>{{porte.email}}</td>
+                <td>{{porte.role}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,16 +1,14 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { DashboardComponent } from "./dashboard.component";
-import { UserAddComponent } from "./user-add/user-add.component";
-import { UserHistoryComponent } from "./user-history/user-history.component";
-import { UsersListComponent } from "./users-list/users-list.component";
 
 
 const routes: Routes = [
     { path:'', component: DashboardComponent},
-    { path:'user-add', component: UserAddComponent },
-    { path:'user-history', component: UserHistoryComponent },
-    { path:'users-list', component: UsersListComponent }
+    { path:'guest', loadChildren: () => import('./guest/guest.module').then(m => m.GuestModule) },
+    { path:'porte', loadChildren: () => import('./porte/porte.module').then(m => m.PorteModule) },
+    { path:'personne', loadChildren: () => import('./personne/personne.module').then(m => m.PersonneModule) },
+    { path:'department', loadChildren: () => import('./department/department.module').then(m => m.DepartmentModule) }
 ];
 
 @NgModule({
