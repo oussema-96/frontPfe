@@ -1,18 +1,36 @@
-<h3 class="p-3 text-center">Personnes</h3>
+<h3 class="p-3 text-center">Personnelle</h3>
 <div class="container">
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
+                <th>Nom et Prénom</th>
+                <th>E-mail</th>
+                <th>CIN</th>
+                <th>Téléphone</th>
+                <th>Genre</th>
+                <th>Départements</th>
+                <th>Portes</th>
+                <th>numréro du carte</th>
+                <th>Date de naissance</th>
+                <th>Date d'activation</th>
+                <th>Date d'expiration</th>
+                <th>Poste</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let personne of personnes">
-                <td>{{personne.firstName}} {{personne.lastName}}</td>
+                <td>{{personne.lastName}} {{personne.firstName}}</td>
                 <td>{{personne.email}}</td>
-                <td>{{personne.role}}</td>
+                <td>{{personne.cin}}</td>
+                <td>{{personne.mobilePhone}}</td>
+                <td>{{personne.gender}}</td>
+                <td>{{personne.department}}</td>
+                <td>{{personne.doors}}</td>
+                <td>{{personne.cardNumber}}</td>
+                <td>{{personne.birthDate}}</td>
+                <td>{{personne.activationDate}}</td>
+                <td>{{personne.expirationDate}}</td>
+                <td>{{personne.position}}</td>
             </tr>
         </tbody>
     </table>

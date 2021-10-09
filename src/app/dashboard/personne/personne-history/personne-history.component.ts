@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonneHistoryComponent implements OnInit {
 
+  histories:any;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.histories = [
+      { firstName: 'Frank', lastName: 'Murphy', cin: 'User',  direction: '', date: '', porte: '', poste: '' },
+      { firstName: 'Vic', lastName: 'Reynolds', cin: 'Admin', direction: '', date: '', porte: '', poste: '' },
+      { firstName: 'Gina', lastName: 'Jabowski', cin: 'Admin', direction: '', date: '', porte: '', poste: '' },
+      { firstName: 'Jessi', lastName: 'Glaser', cin: 'User', direction: '', date: '', porte: '', poste: '' },
+      { firstName: 'Jay', lastName: 'Bilzerian', cin: 'User', direction: '', date: '', porte: '', poste: '' }
+    ];
   }
 
 }

@@ -11,11 +11,11 @@ export class PorteListComponent implements OnInit {
 
   constructor() {
     this.portes = [
-      { firstName: 'Frank', lastName: 'Murphy', email: 'frank.murphy@test.com', role: 'User' },
-      { firstName: 'Vic', lastName: 'Reynolds', email: 'vic.reynolds@test.com', role: 'Admin' },
-      { firstName: 'Gina', lastName: 'Jabowski', email: 'gina.jabowski@test.com', role: 'Admin' },
-      { firstName: 'Jessi', lastName: 'Glaser', email: 'jessi.glaser@test.com', role: 'User' },
-      { firstName: 'Jay', lastName: 'Bilzerian', email: 'jay.bilzerian@test.com', role: 'User' }
+      { name: 'Frank', type: 'Murphy', department: 'frank.murphy@test.com' },
+      { name: 'Vic', type: 'Reynolds', department: 'vic.reynolds@test.com' },
+      { name: 'Gina', type: 'Jabowski', department: 'gina.jabowski@test.com' },
+      { name: 'Jessi', type: 'Glaser', department: 'jessi.glaser@test.com' },
+      { name: 'Jay', type: 'Bilzerian', department: 'jay.bilzerian@test.com' }
     ];
   }
 

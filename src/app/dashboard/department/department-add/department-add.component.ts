@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormStatusEnum } from 'src/app/models/common/enums/form-status.enum';
 
 @Component({
   selector: 'app-department-add',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartmentAddComponent implements OnInit {
 
-  constructor() { }
+  departmentAddForm: FormGroup;
+  error = null;
+  valid = true;
+  submitted = false;
+  constructor() {
+    this.departmentAddForm = new FormGroup({
+      name: new FormControl('', [Validators.required])
+    });
+   }
 
   ngOnInit(): void {
+    this.departmentAddForm.statusChanges.subscribe((status) => {
+      this.error = null;
+      this.valid = status === FormStatusEnum.Valid;
+    });
+  }
+
+  get f() { return this.departmentAddForm.controls; }
+
+  onSubmit() {
+
   }
 
 }

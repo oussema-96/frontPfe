@@ -3,16 +3,32 @@
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
+                <th>Nom et Prénom</th>
+                <th>E-mail</th>
+                <th>CIN</th>
+                <th>Téléphone</th>
+                <th>Genre</th>
+                <th>Départements</th>
+                <th>Portes</th>
+                <th>numréro du carte</th>
+                <th>Date de naissance</th>
+                <th>Date d'activation</th>
+                <th>Date d'expiration</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let guest of guests">
-                <td>{{guest.firstName}} {{guest.lastName}}</td>
+                <td>{{guest.lastName}} {{guest.firstName}}</td>
                 <td>{{guest.email}}</td>
-                <td>{{guest.role}}</td>
+                <td>{{guest.cin}}</td>
+                <td>{{guest.mobilePhone}}</td>
+                <td>{{guest.gender}}</td>
+                <td>{{guest.department}}</td>
+                <td>{{guest.doors}}</td>
+                <td>{{guest.cardNumber}}</td>
+                <td>{{guest.birthDate}}</td>
+                <td>{{guest.activationDate}}</td>
+                <td>{{guest.expirationDate}}</td>
             </tr>
         </tbody>
     </table>

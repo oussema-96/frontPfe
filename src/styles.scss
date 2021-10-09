@@ -35,3 +35,44 @@ html, body {
   opacity: .5;
 
 }
+
+.form-div {
+  width: 100%;
+}
+
+.form-control {
+  background: white;
+  -webkit-appearance: none;
+  color: #1c2b36;
+  outline: 0;
+  border: 0;
+  height: 35px;
+  line-height: normal;
+  vertical-align: middle;
+  min-height: 35px;
+  box-shadow: none;
+  font-weight: 400;
+  border: 2px solid rgba(28,43,54,.07);
+}
+
+.form-group {
+  background-color: aliceblue;
+  position: relative;
+  border-radius: 3px;
+  padding: 7px 12px 4px;
+  overflow: hidden;
+  -webkit-transition: border .3s ease-in;
+  transition: border .3s ease-in;
+  font-weight: 400;
+}
+
+label {
+  display: block;
+  opacity: 1;
+  -webkit-transition: opacity .2s ease;
+  transition: opacity .2s ease;
+  font-weight: 500;
+  font-size: 10px;
+  color: #58666e;
+  margin: 0 0 3px;
+}
