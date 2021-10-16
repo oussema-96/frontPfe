@@ -24,11 +24,7 @@ export class AuthService {
                 private http: HttpClient) { }
   
     public loginUser(user: User) {
-        return this.http.post(this.baseUrl + "auth/signin", user).toPromise();
-    }
-
-    public signUp() {
-        return this.http.post(this.baseUrl + 'auth/register', 'tt').toPromise();
+        return this.http.post("https://localhost:44316/Users/authenticate", user).toPromise();
     }
 
     public logOut() {

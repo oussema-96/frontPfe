@@ -76,6 +76,14 @@ export class SidebarService {
       ]
     },
     {
+      path: '/history',
+      title: 'Historique',
+      icon: 'fa fa-tachometer-alt',
+      active: true,
+      type: '',
+      submenus: []
+    },
+    {
       path: '/blackList',
       title: 'Black List',
       icon: 'fa fa-tachometer-alt',

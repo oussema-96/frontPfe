@@ -47,17 +47,16 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log('send form');
     let user = new User();
-    if (this.loginForm.invalid) {
-      return;
-    } else {
-      user.email = this.loginForm.value.email;
+    // if (this.loginForm.invalid) {
+    //   return;
+    // } else {
+      user.username = this.loginForm.value.email;
       user.password = this.loginForm.value.password;
-    }
+    // }
     this.authService.loginUser(user).then((response: any) => {
       localStorage.setItem('isLoggedin', 'true');
-      this.cookieService.set('token', response.access_token, 1);
+      this.cookieService.set('token', response.token, 1);
 
       this.router.navigate(['dashboard']);
     })
