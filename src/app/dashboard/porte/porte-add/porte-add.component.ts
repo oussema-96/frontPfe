@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { FormStatusEnum } from 'src/app/models/common/enums/form-status.enum';
+
 
 
 @Component({
@@ -14,7 +16,9 @@ export class PorteAddComponent implements OnInit {
   error = null;
   valid = true;
   submitted = false;
-  constructor() {
+  constructor(
+    public dialogRef: MatDialogRef<PorteAddComponent>
+  ) {
     this.porteAddForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       type: new FormControl('', [Validators.required]),
@@ -33,6 +37,10 @@ export class PorteAddComponent implements OnInit {
 
   onSubmit() {
 
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 
 }

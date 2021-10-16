@@ -1,29 +1,34 @@
-<div class="container">
-    <div class="form-div">
-        <form role="form" (ngSubmit)="onSubmit()">
-            <div class="form-content">
-                <div class="form-group">
-                    <label for="name">Nom du porte</label>
-                    <input type="test" formControllName="name" class="form-control">
+<div class="close-btn-wrapper">
+    <div (click)="close()" class="icon close" id="close-btn"></div>
+</div>
+<div class="content">
+    <div class="container">
+        <div class="form-div">
+            <form role="form" (ngSubmit)="onSubmit()">
+                <div class="form-content">
+                    <div class="form-group">
+                        <label for="name">Nom du porte</label>
+                        <input type="test" formControllName="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Type du porte</label>
+                        <select class="form-control" formControllName="type">
+                            <option value="0">entré</option>
+                            <option value="1">sortie</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Department ID</label>
+                        <select class="form-control" formControllName="departmentId">
+                            <!-- get department from service -->
+                            <option value="DepartmentId">sortie</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="type">Type du porte</label>
-                    <select class="form-control" formControllName="type">
-                        <option value="0">entré</option>
-                        <option value="1">sortie</option>
-                    </select>
+                <div class="button-div">
+                    <button type="submit" class="btn btn-success">Ajouter</button>
                 </div>
-                <div class="form-group">
-                    <label for="type">Department ID</label>
-                    <select class="form-control" formControllName="departmentId">
-                        <!-- get department from service -->
-                        <option value="DepartmentId">sortie</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-success">Ajouter</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>

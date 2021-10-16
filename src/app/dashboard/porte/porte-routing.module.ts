@@ -4,8 +4,7 @@ import { PorteAddComponent } from "./porte-add/porte-add.component";
 import { PorteListComponent } from "./porte-list/porte-list.component";
 
 const routes: Routes = [
-  { path:'', component: PorteListComponent},
-  { path:'add', component: PorteAddComponent}
+  { path: '', component: PorteListComponent },
 ];
 
 @NgModule({

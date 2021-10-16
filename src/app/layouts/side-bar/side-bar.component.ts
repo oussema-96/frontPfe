@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { SidebarService } from './side-bar.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
@@ -17,11 +17,11 @@ import { Router } from '@angular/router';
 })
 export class SideBarComponent implements OnInit {
   menus: any;
-  constructor(public sidebarservice: SidebarService, public router:Router) {
+  constructor(public sidebarservice: SidebarService, public router:Router, public route:ActivatedRoute) {
     this.menus = sidebarservice.getMenuList();
    }
 
-  ngOnInit() {
+   ngOnInit() {
   }
 
   getSideBarState() {

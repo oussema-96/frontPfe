@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MatDialog } from '@angular/material/dialog';
+import { DepartmentAddComponent } from '../department-add/department-add.component';
 @Component({
   selector: 'app-department-list',
   templateUrl: './department-list.component.html',
@@ -9,7 +10,7 @@ export class DepartmentListComponent implements OnInit {
 
   departments: any;
 
-  constructor() {
+  constructor(public dialog:MatDialog) {
     this.departments = [
       { Name: 'Service Commercial', Doors: 'SC1, SC2, SC3, SC4, SC5, SC6' },
       { Name: 'Marketing', Doors: 'M1, M2, M3, M4, M5, M6'  },
@@ -22,4 +23,7 @@ export class DepartmentListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openPorteAdd() {
+    this.dialog.open(DepartmentAddComponent);
+  }
 }

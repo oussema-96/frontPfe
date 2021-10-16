@@ -5,13 +5,17 @@ import { BlackListComponent } from "./black-list/black-list.component";
 
 
 const routes: Routes = [
-    { path:'', component: DashboardComponent},
-    { path:'guest', loadChildren: () => import('./guest/guest.module').then(m => m.GuestModule) },
-    { path:'porte', loadChildren: () => import('./porte/porte.module').then(m => m.PorteModule) },
-    { path:'personne', loadChildren: () => import('./personne/personne.module').then(m => m.PersonneModule) },
-    { path:'department', loadChildren: () => import('./department/department.module').then(m => m.DepartmentModule) },
-    { path:'blackList', component:BlackListComponent}
-
+  {
+    path: '',
+    component: DashboardComponent,
+    children: [
+      { path:'guest', loadChildren: () => import('./guest/guest.module').then(m => m.GuestModule) },
+      { path:'porte', loadChildren: () => import('./porte/porte.module').then(m => m.PorteModule) },
+      { path:'personne', loadChildren: () => import('./personne/personne.module').then(m => m.PersonneModule) },
+      { path:'department', loadChildren: () => import('./department/department.module').then(m => m.DepartmentModule) },
+      { path:'blackList', component:BlackListComponent}
+    ]
+  }
 ];
 
 @NgModule({
