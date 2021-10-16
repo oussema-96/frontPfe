@@ -4,8 +4,8 @@ import { GuestAddComponent } from "./guest-add/guest-add.component";
 import { GuestListComponent } from "./guest-list/guest-list.component";
 
 const routes: Routes = [
-  { path:'', component: GuestListComponent},
-  { path:'add', component: GuestAddComponent}
+  { path: '', component: GuestListComponent },
+  { path:'add', component: GuestAddComponent }
 ];
 
 @NgModule({

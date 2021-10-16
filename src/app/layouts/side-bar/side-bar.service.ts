@@ -60,10 +60,6 @@ export class SidebarService {
         {
           path: '/porte',
           title: 'List',
-        },
-        {
-          path: '/porte/add',
-          title: 'Add'
         }
       ]
     },
@@ -76,12 +72,16 @@ export class SidebarService {
         {
           path: '/department',
           title: 'List',
-        },
-        {
-          path: '/department/add',
-          title: 'Add'
         }
       ]
+    },
+    {
+      path: '/blackList',
+      title: 'Black List',
+      icon: 'fa fa-tachometer-alt',
+      active: true,
+      type: '',
+      submenus: []
     }
   ];
   constructor() { }

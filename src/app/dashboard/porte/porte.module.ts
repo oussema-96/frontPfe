@@ -6,12 +6,12 @@ import { PorteRoutingModule } from './porte-routing.module';
 
 @NgModule({
   declarations: [],
-   imports: [
+  imports: [
     CommonModule,
     PorteRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
 })
 export class PorteModule {}

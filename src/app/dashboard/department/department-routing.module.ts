@@ -4,8 +4,8 @@ import { DepartmentAddComponent } from "./department-add/department-add.componen
 import { DepartmentListComponent } from "./department-list/department-list.component";
 
 const routes: Routes = [
-  { path:'', component: DepartmentListComponent},
-  { path:'add', component: DepartmentAddComponent}
+  { path: '', component: DepartmentListComponent },
+  { path:'add', component: DepartmentAddComponent }
 ];
 
 @NgModule({

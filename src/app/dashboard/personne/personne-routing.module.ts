@@ -5,9 +5,9 @@ import { PersonneHistoryComponent } from "./personne-history/personne-history.co
 import { PersonneListComponent } from "./personne-list/personne-list.component";
 
 const routes: Routes = [
-  { path:'', component: PersonneListComponent},
-  { path:'add', component: PersonneAddComponent},
-  { path:'history', component: PersonneHistoryComponent},
+  { path: '', component: PersonneListComponent },
+  { path: 'add', component: PersonneAddComponent },
+  { path: 'history', component: PersonneHistoryComponent }
 ];
 
 @NgModule({

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PorteAddComponent } from '../porte-add/porte-add.component';
 
 @Component({
   selector: 'app-porte-list',
@@ -9,7 +11,7 @@ export class PorteListComponent implements OnInit {
 
   portes: any;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.portes = [
       { name: 'SI1', type: 'Entrée', department: 'Service Industriel' },
       { name: 'SI1', type: 'Sortie', department: 'Service Industriel' },
@@ -41,6 +43,10 @@ export class PorteListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  openPorteAdd() {
+    this.dialog.open(PorteAddComponent);
   }
 
 }
