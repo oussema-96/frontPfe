@@ -1,0 +1,25 @@
+<h3 class="p-3 text-center">Historique</h3>
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Cin</th>
+                <th>Poste</th>
+                <th>Entrée/Sortie</th>
+                <th>Date</th>
+                <th>Porte</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let history of histories">
+                <td>{{history['firstName']}} {{history['lastName']}}</td>
+                <td>{{history['cin']}}</td>
+                <td>{{history['position']}}</td>
+                <td>{{history['direction']}}</td>
+                <td>{{history['date']}}</td>
+                <td>{{history['accessingDoor']}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

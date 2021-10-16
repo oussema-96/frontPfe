@@ -12,12 +12,12 @@
         </thead>
         <tbody>
             <tr *ngFor="let porte of portes">
-                <td>{{porte.name}}</td>
-                <td>{{porte.type}}</td>
+                <td>{{porte.doorName}}</td>
+                <td>{{porte.typeDoor}}</td>
                 <td>{{porte.department}}</td>
                 <td>
                     <button class="btn btn-warning">Modifier</button>
-                    <button class="btn btn-danger">Supprimer</button>
+                    <button class="btn btn-danger" (click)="deleteDoor(porte.doorId)">Supprimer</button>
                 </td>
             </tr>
         </tbody>

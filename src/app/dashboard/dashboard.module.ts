@@ -18,12 +18,13 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { BlackListComponent } from './black-list/black-list.component';
+import { HistoryComponent } from './history/history.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
 @NgModule({
-  declarations: [SideBarComponent, DashboardComponent, DepartmentAddComponent, DepartmentListComponent, GuestAddComponent, GuestListComponent, PersonneListComponent, PersonneAddComponent, PersonneHistoryComponent, PorteAddComponent, PorteListComponent, BlackListComponent],
+  declarations: [SideBarComponent, DashboardComponent, DepartmentAddComponent, DepartmentListComponent, GuestAddComponent, GuestListComponent, PersonneListComponent, PersonneAddComponent, PersonneHistoryComponent, PorteAddComponent, PorteListComponent, BlackListComponent, HistoryComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,

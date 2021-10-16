@@ -4,7 +4,7 @@
 <div class="content">
     <div class="container">
         <div class="form-div">
-            <form role="form" (ngSubmit)="onSubmit()">
+            <form [formGroup]="porteAddForm" (ngSubmit)="onSubmit()">
                 <div class="form-content">
                     <div class="form-group">
                         <label for="name">Nom du porte</label>
@@ -20,8 +20,7 @@
                     <div class="form-group">
                         <label for="type">Department ID</label>
                         <select class="form-control" formControllName="departmentId">
-                            <!-- get department from service -->
-                            <option value="DepartmentId">sortie</option>
+                            <option *ngFor="let department of departmentList" [value]="department['departmentId']">{{department['departmentName']}}</option>
                         </select>
                     </div>
                 </div>

@@ -5,7 +5,9 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { DepartmentRoutingModule } from './department-routing.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  
+  ],
    imports: [
     CommonModule,
     DepartmentRoutingModule,
