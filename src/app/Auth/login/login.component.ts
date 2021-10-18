@@ -55,6 +55,7 @@ export class LoginComponent implements OnInit {
       user.password = this.loginForm.value.password;
     // }
     this.authService.loginUser(user).then((response: any) => {
+      this.authService.authenticated.next(true);
       localStorage.setItem('isLoggedin', 'true');
       this.cookieService.set('token', response.token, 1);
 

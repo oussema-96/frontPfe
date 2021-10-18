@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth/authService';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pfe';
+
+  constructor(private authService: AuthService)
+  {}
+
+  ngOnInit() {
+    this.authService.handleAuthCookie();
+  }
 }

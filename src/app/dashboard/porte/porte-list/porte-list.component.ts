@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DoorService } from 'src/app/services/entities/porte.service';
+import { PorteService } from 'src/app/services/entities/porte.service';
 import { PorteAddComponent } from '../porte-add/porte-add.component';
 
 @Component({
@@ -12,7 +12,7 @@ export class PorteListComponent implements OnInit {
 
   portes: any;
 
-  constructor(public dialog: MatDialog, private doorService: DoorService) {
+  constructor(public dialog: MatDialog, private porteService: PorteService) {
   }
 
   ngOnInit() {
@@ -20,7 +20,7 @@ export class PorteListComponent implements OnInit {
   }
 
   async getPortes() {
-    await this.doorService.getListDoors()
+    await this.porteService.getListPortes()
     .then((resp:any) => {
       this.portes = resp;
       this.portes.forEach(element => {
@@ -34,7 +34,7 @@ export class PorteListComponent implements OnInit {
   }
 
   deleteDoor(id) {
-    this.doorService.deleteDoor(id).then(() => this.ngOnInit());
+    this.porteService.deletePorte(id).then(() => this.ngOnInit());
   }
 
 }

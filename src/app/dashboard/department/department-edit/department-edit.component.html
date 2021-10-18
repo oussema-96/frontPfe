@@ -1,19 +1,16 @@
-<div class="close-btn-wrapper">
-    <div (click)="close()" class="icon close" id="close-btn"></div>
-</div>
-
 <div class="content">
     <div class="container">
         <div class="form-div">
-            <form [formGroup]="departmentAddForm" (ngSubmit)="onSubmit()">
+            <form role="form" (ngSubmit)="onSubmit()">
                 <div class="form-content">
+                    <input type="hidden" formControlName="id" value="{{department.departmentId}}">
                     <div class="form-group">
                         <label for="name">Nom du departement</label>
-                        <input type="test" formControlName="departmentName" class="form-control">
+                        <input type="test" formControlName="name" class="form-control" value="{{department.departmentName}}">
                     </div>
                 </div>
                 <div class="button-div">
-                    <button type="submit" class="btn btn-success">Ajouter</button>
+                    <button type="submit" class="btn btn-success">Modifier</button>
                 </div>
             </form>
         </div>

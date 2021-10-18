@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';7
 import { User } from 'src/app/models/user.model';
 import { environment } from 'src/environments/environment';
+import { CookieService } from 'ngx-cookie-service';
+import { LoginComponent } from 'src/app/Auth/login/login.component';
 
 
 @Injectable({
@@ -12,24 +14,39 @@ import { environment } from 'src/environments/environment';
 
 export class AuthService {
 
+    authenticated: BehaviorSubject<boolean> = new BehaviorSubject(false);
     baseUrl = environment.api;
     token:string ="";
     public loggedUser:string="";
     public isloggedIn: Boolean = false;
     TOKEN_KEY = "AuthToken";
     USERNAME_KEY = 'AuthUsername';
-    private username: string = "";
+    status = false;
 
-    constructor(private router: Router,
-                private http: HttpClient) { }
+    constructor(private http: HttpClient, private cookieService: CookieService)
+    { }
   
+    handleAuthCookie() {
+        let authToken = this.cookieService.get('token');
+        if (authToken) {
+            this.status = true ;
+        } else {
+            this.status = false;
+        }
+        this.authenticated = new BehaviorSubject(this.status);
+    }
+
     public loginUser(user: User) {
         return this.http.post("https://localhost:44316/Users/authenticate", user).toPromise();
     }
 
     public logOut() {
-
+        this.authenticated.next(false);
     }
+
+    isLoggedIn(): boolean {
+        return this.authenticated.value;
+      }
 
     public getToke() {
         return localStorage.getItem(this.TOKEN_KEY);

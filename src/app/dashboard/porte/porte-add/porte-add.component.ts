@@ -13,7 +13,7 @@ import { DepartmentService } from 'src/app/services/entities/department.service'
 })
 export class PorteAddComponent implements OnInit {
 
-  departmentList: [];
+  departmentList;
   porteAddForm: FormGroup;
   error = null;
   valid = true;
@@ -29,26 +29,31 @@ export class PorteAddComponent implements OnInit {
     });
    }
 
-  async ngOnInit() {
-    await this.departmentService.getListdepartments()
-    .then((resp:any) => {
-      this.departmentList = resp;
-    })
+  ngOnInit() {
     this.porteAddForm.statusChanges.subscribe((status) => {
+      console.log(status);
       this.error = null;
       this.valid = status === FormStatusEnum.Valid;
     });
+    this.getListDepartments();
   }
-
+  
   get f() { return this.porteAddForm.controls; }
+  
+  async getListDepartments() {    
+    // await this.departmentService.getListdepartments()
+    // .then((resp:any) => {
+    //   this.departmentList = resp;
+    // })
+    this.departmentList = [1,2];
+  }
 
   onSubmit() {
     let porte = {
-      doorName: this.porteAddForm.get('name').value,
+      doorName: this.porteAddForm.value.name,
       typeDoor: this.porteAddForm.get('type').value,
       departmentId: this.porteAddForm.get('departmentId').value
     }
-    console.log(porte);
   }
 
   close() {

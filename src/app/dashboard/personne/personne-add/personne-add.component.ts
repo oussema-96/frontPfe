@@ -24,7 +24,7 @@ export class PersonneAddComponent implements OnInit {
       doors: new FormControl('', [Validators.required]),
       cardNumber: new FormControl('', [Validators.required]),
       mobilePhone: new FormControl('', [Validators.required]),
-      birthdate: new FormControl('', [Validators.required]),
+      birthDate: new FormControl('', [Validators.required]),
       activationDate: new FormControl('', [Validators.required]),
       expirationDate: new FormControl('', [Validators.required]),
       position: new FormControl('', [Validators.required])

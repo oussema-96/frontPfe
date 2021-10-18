@@ -16,31 +16,9 @@
                 <td>{{department.Doors}}</td>
                 
                 <td>
-                    <button class="btn btn-warning" (click)="openEditPopup()">Modifier</button>
+                    <button class="btn btn-warning" (click)="openPorteEdit(department.departmentId)">Modifier</button>
                     <button class="btn btn-danger" (click)="deleteDepartment(department.departmentId)">Supprimer</button>
-                </td>
-                <div class="close-btn-wrapper">
-                    <div (click)="close()" class="icon close" id="close-btn"></div>
-                </div>
-                
-                <div *ngIf="edit" class="content">
-                    <div class="container">
-                        <div class="form-div">
-                            <form role="form" (ngSubmit)="onEdit()">
-                                <div class="form-content">
-                                    <input type="hidden" formControllName="id" value="{{department.departmentId}}">
-                                    <div class="form-group">
-                                        <label for="name">Nom du departement</label>
-                                        <input type="test" formControllName="name" class="form-control" value="{{department.departmentName}}">
-                                    </div>
-                                </div>
-                                <div class="button-div">
-                                    <button type="submit" class="btn btn-success">Modifier</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                </td>               
             </tr>
         </tbody>
     </table>
