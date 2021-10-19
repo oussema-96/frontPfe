@@ -31,8 +31,8 @@
                 <td>{{guest.activationDate}}</td>
                 <td>{{guest.expirationDate}}</td>
                 <td>
-                    <button class="btn btn-warning">Modifier</button>
-                    <button class="btn btn-danger">Supprimer</button>
+                    <button class="btn btn-warning" (click)="openEditGuest(guest.id)">Modifier</button>
+                    <button class="btn btn-danger" (click)="deleteGuest()">Supprimer</button>
                 </td>
             </tr>
         </tbody>

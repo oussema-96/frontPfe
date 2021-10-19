@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 
-export class DoorService {
+export class PersonneService {
     baseUrl = environment.api;
 
     constructor(private http: HttpClient) {
@@ -18,23 +18,23 @@ export class DoorService {
     //     return this.http.get()
     // }
 
-    public getDoor(id) {
-        return this.http.get(this.baseUrl + 'Door/' + id).toPromise();
+    public getPersonne(id) {
+        return this.http.get(this.baseUrl + 'Personne/' + id).toPromise();
     }
 
-    public saveDoor(deparmtent) {
-        return this.http.post(this.baseUrl + 'Door', deparmtent).toPromise();
+    public savePersonne(deparmtent) {
+        return this.http.post(this.baseUrl + 'Personne', deparmtent).toPromise();
     }
 
-    public updateDoor(id, deparmtent) {
-        return this.http.put(this.baseUrl + 'Door?id=' + id, deparmtent).toPromise();
+    public updatePersonne(id, deparmtent) {
+        return this.http.put(this.baseUrl + 'Personne?id=' + id, deparmtent).toPromise();
     }
 
-    public getListDoors() {
-        return this.http.get(this.baseUrl + 'Door').toPromise();
+    public getListPersonnes() {
+        return this.http.get(this.baseUrl + 'Personne').toPromise();
     }
 
-    public deleteDoor(id) {
-        return this.http.delete(this.baseUrl + 'Door/' + id).toPromise();
+    public deletePersonne(id) {
+        return this.http.delete(this.baseUrl + 'Personne/' + id).toPromise();
     }
 }

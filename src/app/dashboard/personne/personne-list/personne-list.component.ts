@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PersonneEditComponent } from '../personne-edit/personne-edit.component';
 
 @Component({
   selector: 'app-personne-list',
@@ -9,7 +11,7 @@ export class PersonneListComponent implements OnInit {
 
   personnes: any;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.personnes = [
       { firstName: 'Frank', lastName: 'Murphy', email: 'frank.murphy@test.com', cin: '1615464', gender: 'Homme', mobilePhone: '31164545', department: 'Service Commercial', doors: 'Tous les portes', cardNumber: 'lfnvem+6662re+6', birthDate: '15/02/1987', activationDate: '17/03/2009', expirationDate: '26/03/2017', position: 'Manager' },
       { firstName: 'Vic', lastName: 'Reynolds', email: 'vic.reynolds@test.com', cin: '135641351', gender: 'Homme', mobilePhone: '6464684', department: 'Service Commercial', doors: 'Tous les portes', cardNumber: 'uzilrngefr315', birthDate: '26/02/1991', activationDate: '06/07/2010', expirationDate: '30/09/2030', position: 'Ingénieur' },
@@ -20,6 +22,16 @@ export class PersonneListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  openEditPersonne(id) {
+    this.dialog.open(PersonneEditComponent, {
+      data: { id: id },
+    });
+  }
+
+  deletePersonne() {
+
   }
 
 }

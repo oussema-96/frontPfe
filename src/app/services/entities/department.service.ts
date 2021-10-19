@@ -18,19 +18,19 @@ export class DepartmentService {
     //     return this.http.get()
     // }
 
-    public getdepartment(id) {
+    public getDepartment(id) {
         return this.http.get(this.baseUrl + 'Department/' + id).toPromise();
     }
 
-    public savedepartment(deparmtent) {
+    public saveDepartment(deparmtent) {
         return this.http.post(this.baseUrl + 'Department', deparmtent).toPromise();
     }
 
-    public updatedepartment(id, deparmtent) {
+    public updateDepartment(id, deparmtent) {
         return this.http.put(this.baseUrl + 'Department?id=' + id, deparmtent).toPromise();
     }
 
-    public getListdepartments() {
+    public getListDepartments() {
         return this.http.get(this.baseUrl + 'Department').toPromise();
     }
 

@@ -16,7 +16,7 @@
                 <td>{{porte.typeDoor}}</td>
                 <td>{{porte.department}}</td>
                 <td>
-                    <button class="btn btn-warning">Modifier</button>
+                    <button class="btn btn-warning" (click)="openPorteEdit(porte.doorId)">Modifier</button>
                     <button class="btn btn-danger" (click)="deleteDoor(porte.doorId)">Supprimer</button>
                 </td>
             </tr>

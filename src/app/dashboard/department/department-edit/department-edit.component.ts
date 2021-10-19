@@ -32,7 +32,7 @@ export class DepartmentEditComponent implements OnInit {
   get f() { return this.departmentEditForm.controls; }
 
   async getDepartment() {
-   await this.departmentService.getdepartment(this.data.id)
+   await this.departmentService.getDepartment(this.data.id)
    .then((resp:any) => {
      this.department = resp;
    });
@@ -42,7 +42,7 @@ export class DepartmentEditComponent implements OnInit {
     let department = {
       departmentName : this.departmentEditForm.get('name').value
     }
-    this.departmentService.updatedepartment(this.departmentEditForm.get('id').value, department)
+    this.departmentService.updateDepartment(this.departmentEditForm.get('id').value, department)
     .then(() => {
       this.ngOnInit();
     })

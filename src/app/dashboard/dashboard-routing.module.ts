@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     children: [
       { path:'guest', loadChildren: () => import('./guest/guest.module').then(m => m.GuestModule) },
       { path:'porte', loadChildren: () => import('./porte/porte.module').then(m => m.PorteModule) },

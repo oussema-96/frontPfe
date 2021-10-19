@@ -20,6 +20,14 @@ export class DepartmentListComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.getDepartments();
+  }
+
+  async getDepartments() {
+    await this.departmentService.getListDepartments()
+    .then((resp:any) => {
+      this.departments = resp;
+    })
   }
   
   deleteDepartment(id) {
@@ -27,13 +35,13 @@ export class DepartmentListComponent implements OnInit {
     .then(() => {this.ngOnInit()});
   }
 
-  openPorteEdit(id) {
+  openDepartmentEdit(id) {
     this.dialog.open(DepartmentEditComponent, {
       data: { id: id },
     });
   }
 
-  openPorteAdd() {
+  openDepartmentAdd() {
     this.dialog.open(DepartmentAddComponent);
   }
 }

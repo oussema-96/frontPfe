@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { FormStatusEnum } from 'src/app/models/common/enums/form-status.enum';
+import { DepartmentService } from 'src/app/services/entities/department.service';
+import { PorteService } from 'src/app/services/entities/porte.service';
 
 @Component({
   selector: 'app-guest-add',
@@ -9,11 +11,13 @@ import { FormStatusEnum } from 'src/app/models/common/enums/form-status.enum';
 })
 export class GuestAddComponent implements OnInit {
 
+  departmentList;
+  porteList;
   guestAddForm: FormGroup;
   error = null;
   valid = true;
   submitted = false;
-  constructor() {
+  constructor(private departmentService: DepartmentService, private porteService: PorteService) {
     this.guestAddForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
@@ -35,10 +39,25 @@ export class GuestAddComponent implements OnInit {
       this.error = null;
       this.valid = status === FormStatusEnum.Valid;
     });
+    this.getListDepartments();
   }
 
   get f() { return this.guestAddForm.controls; }
 
+  async getListDepartments() {    
+    await this.departmentService.getListDepartments()
+    .then((resp:any) => {
+      this.departmentList = resp;
+    })
+  }
+  
+  async getListPortes(id) {
+   await this.porteService.getListPortes()
+   .then((resp:any) => {
+     this.porteList = resp;
+   });
+  }
+  
   onSubmit() {
 
   }

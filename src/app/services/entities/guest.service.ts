@@ -7,34 +7,34 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 
-export class DoorService {
+export class GuestService {
     baseUrl = environment.api;
 
     constructor(private http: HttpClient) {
 
     }
 
-    // public getDoors(id) {
+    // public getGuests(id) {
     //     return this.http.get()
     // }
 
-    public getDoor(id) {
-        return this.http.get(this.baseUrl + 'Door/' + id).toPromise();
+    public getGuest(id) {
+        return this.http.get(this.baseUrl + 'Guest/' + id).toPromise();
     }
 
-    public saveDoor(deparmtent) {
-        return this.http.post(this.baseUrl + 'Door', deparmtent).toPromise();
+    public saveGuest(deparmtent) {
+        return this.http.post(this.baseUrl + 'Guest', deparmtent).toPromise();
     }
 
-    public updateDoor(id, deparmtent) {
-        return this.http.put(this.baseUrl + 'Door?id=' + id, deparmtent).toPromise();
+    public updateGuest(id, deparmtent) {
+        return this.http.put(this.baseUrl + 'Guest?id=' + id, deparmtent).toPromise();
     }
 
-    public getListDoors() {
-        return this.http.get(this.baseUrl + 'Door').toPromise();
+    public getListGuests() {
+        return this.http.get(this.baseUrl + 'Guest').toPromise();
     }
 
-    public deleteDoor(id) {
-        return this.http.delete(this.baseUrl + 'Door/' + id).toPromise();
+    public deleteGuest(id) {
+        return this.http.delete(this.baseUrl + 'Guest/' + id).toPromise();
     }
 }

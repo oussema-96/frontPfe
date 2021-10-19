@@ -41,16 +41,14 @@
                 <div class="form-content col-md-6">
                     <div class="form-group">
                         <label for="department">Département</label>
-                        <select class="form-control" formControlName="department">
-                            <!-- get departments ids from service -->
-                            <option value=""></option>
+                        <select class="form-control" formControlName="department" (change)="getListPortes($event.target)">
+                            <option *ngFor="let department of departmentList" value="department"></option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="doors">Liste des portes</label>
                         <select class="form-control" formControlName="department">
-                            <!-- get doors ids from service based on department -->
-                            <option value=""></option>
+                            <option *ngFor="let porte of porteList" value="porte"></option>
                         </select>
                     </div>
                     <div class="form-group">

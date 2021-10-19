@@ -35,7 +35,7 @@ export class DepartmentAddComponent implements OnInit {
     let department = {
       departmentName: this.departmentAddForm.get('departmentName').value
     }
-    this.departmentService.savedepartment(department)
+    this.departmentService.saveDepartment(department)
     .then(() => {
       this.ngOnInit();
     });

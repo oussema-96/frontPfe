@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { SidebarService } from './side-bar.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-side-bar',
@@ -17,7 +18,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SideBarComponent implements OnInit {
   menus: any;
-  constructor(public sidebarservice: SidebarService, public router:Router, public route:ActivatedRoute) {
+  constructor(public sidebarservice: SidebarService, public router:Router, public route:ActivatedRoute, private cookieService: CookieService) {
     this.menus = sidebarservice.getMenuList();
    }
 
@@ -54,6 +55,8 @@ export class SideBarComponent implements OnInit {
   }
 
   logout() {
+    localStorage.removeItem('isLoggedin');
+    this.cookieService.deleteAll();
     this.router.navigate(['sign-in']);
   }
 

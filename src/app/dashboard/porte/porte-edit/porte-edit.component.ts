@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { FormStatusEnum } from 'src/app/models/common/enums/form-status.enum';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PorteService } from 'src/app/services/entities/porte.service';
+import { DepartmentService } from 'src/app/services/entities/department.service';
 
 @Component({
   selector: 'app-porte-edit',
@@ -22,7 +23,7 @@ export class PorteEditComponent implements OnInit {
   valid = true;
   submitted = false;
   
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {id: number}, public dialogRef: MatDialogRef<PorteEditComponent>, private porteService: PorteService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {id: number}, public dialogRef: MatDialogRef<PorteEditComponent>, private porteService: PorteService, private departmentService: DepartmentService) { }
   
   ngOnInit(): void {
     this.porteEditForm.statusChanges.subscribe((status) => {
@@ -37,11 +38,10 @@ export class PorteEditComponent implements OnInit {
   get f() { return this.porteEditForm.controls; }
   
   async getListDepartments() {    
-    // await this.departmentService.getListdepartments()
-    // .then((resp:any) => {
-    //   this.departmentList = resp;
-    // })
-    this.departmentList = [1,2];
+    await this.departmentService.getListDepartments()
+    .then((resp:any) => {
+      this.departmentList = resp;
+    })
   }
   
   async getporte() {

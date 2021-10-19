@@ -33,8 +33,8 @@
                 <td>{{personne.expirationDate}}</td>
                 <td>{{personne.position}}</td>
                 <td>
-                    <button class="btn btn-warning">Modifier</button>
-                    <button class="btn btn-danger">Supprimer</button>
+                    <button class="btn btn-warning" (click)="openEditPersonne(personne.id)">Modifier</button>
+                    <button class="btn btn-danger" (click)="deletePersonne()">Supprimer</button>
                 </td>
             </tr>
         </tbody>

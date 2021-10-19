@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { GuestEditComponent } from '../guest-edit/guest-edit.component';
 
 @Component({
   selector: 'app-guest-list',
@@ -9,7 +11,7 @@ export class GuestListComponent implements OnInit {
 
   guests: any;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.guests = [
       { firstName: 'Frank', lastName: 'Murphy', email: 'frank.murphy@test.com', cin: 'User', gender: '', department: '', doors: '', cardNumber: '', birthDate: '', activationDate: '', expirationDate: '' },
       { firstName: 'Vic', lastName: 'Reynolds', email: 'vic.reynolds@test.com', cin: 'Admin', gender: '', department: '', doors: '', cardNumber: '', birthDate: '', activationDate: '', expirationDate: '' },
@@ -20,6 +22,16 @@ export class GuestListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  openEditGuest(id) {
+    this.dialog.open(GuestEditComponent, {
+      data: { id: id },
+    });
+  }
+
+  deleteGuest() {
+
   }
 
 }

@@ -1,22 +1,22 @@
 <h3 class="p-3 text-center">Departements</h3>
 <div class="container">
-    <button class="btn btn-success" (click)="openPorteAdd()">Ajouter</button>
+    <button class="btn btn-success" (click)="openDepartmentAdd()">Ajouter</button>
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
+                <th>Id du département</th>
                 <th>Nom du département</th>
-                <th>Les portes incluses</th>
                 
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let department of departments">
+                <td>{{department.departmentId}}</td>
                 <td>{{department.departmentName}}</td>
-                <td>{{department.Doors}}</td>
                 
                 <td>
-                    <button class="btn btn-warning" (click)="openPorteEdit(department.departmentId)">Modifier</button>
+                    <button class="btn btn-warning" (click)="openDepartmentEdit(department.departmentId)">Modifier</button>
                     <button class="btn btn-danger" (click)="deleteDepartment(department.departmentId)">Supprimer</button>
                 </td>               
             </tr>

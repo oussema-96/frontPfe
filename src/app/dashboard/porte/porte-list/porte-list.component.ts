@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PorteService } from 'src/app/services/entities/porte.service';
 import { PorteAddComponent } from '../porte-add/porte-add.component';
+import { PorteEditComponent } from '../porte-edit/porte-edit.component';
 
 @Component({
   selector: 'app-porte-list',
@@ -17,6 +18,7 @@ export class PorteListComponent implements OnInit {
 
   ngOnInit() {
     this.getPortes();
+    this.portes = [{doorName: 'test'}];
   }
 
   async getPortes() {
@@ -27,6 +29,12 @@ export class PorteListComponent implements OnInit {
         element.typeDoor = element.typeDoor === 0 ? 'entrée' : 'sortie'
       });
     })
+  }
+
+  openPorteEdit(id) {
+    this.dialog.open(PorteEditComponent, {
+      data: { id: id },
+    });
   }
 
   openPorteAdd() {
