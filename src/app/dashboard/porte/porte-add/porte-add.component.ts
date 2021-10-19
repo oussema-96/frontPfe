@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { FormStatusEnum } from 'src/app/models/common/enums/form-status.enum';
 import { DepartmentService } from 'src/app/services/entities/department.service';
+import { PorteService } from 'src/app/services/entities/porte.service';
 
 
 
@@ -20,7 +21,8 @@ export class PorteAddComponent implements OnInit {
   submitted = false;
   constructor(
     public dialogRef: MatDialogRef<PorteAddComponent>,
-    private departmentService: DepartmentService
+    private departmentService: DepartmentService,
+    private porteService: PorteService
   ) {
     this.porteAddForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
@@ -41,11 +43,10 @@ export class PorteAddComponent implements OnInit {
   get f() { return this.porteAddForm.controls; }
   
   async getListDepartments() {    
-    // await this.departmentService.getListdepartments()
-    // .then((resp:any) => {
-    //   this.departmentList = resp;
-    // })
-    this.departmentList = [1,2];
+    await this.departmentService.getListDepartments()
+    .then((resp:any) => {
+      this.departmentList = resp;
+    })
   }
 
   onSubmit() {
@@ -54,6 +55,10 @@ export class PorteAddComponent implements OnInit {
       typeDoor: this.porteAddForm.get('type').value,
       departmentId: this.porteAddForm.get('departmentId').value
     }
+    this.porteService.savePorte(porte)
+    .then(() => {
+      this.ngOnInit();
+    })
   }
 
   close() {
