@@ -19,22 +19,22 @@ export class PersonneService {
     // }
 
     public getPersonne(id) {
-        return this.http.get(this.baseUrl + 'Personne/' + id).toPromise();
+        return this.http.get(this.baseUrl + 'Personnel/' + id).toPromise();
     }
 
     public savePersonne(deparmtent) {
-        return this.http.post(this.baseUrl + 'Personne', deparmtent).toPromise();
+        return this.http.post(this.baseUrl + 'Personnel', deparmtent).toPromise();
     }
 
     public updatePersonne(id, deparmtent) {
-        return this.http.put(this.baseUrl + 'Personne?id=' + id, deparmtent).toPromise();
+        return this.http.put(this.baseUrl + 'Personnel?id=' + id, deparmtent).toPromise();
     }
 
     public getListPersonnes() {
-        return this.http.get(this.baseUrl + 'Personne').toPromise();
+        return this.http.get(this.baseUrl + 'Personnel').toPromise();
     }
 
     public deletePersonne(id) {
-        return this.http.delete(this.baseUrl + 'Personne/' + id).toPromise();
+        return this.http.delete(this.baseUrl + 'Personnel/' + id).toPromise();
     }
 }

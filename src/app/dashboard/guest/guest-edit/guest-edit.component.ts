@@ -5,6 +5,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { GuestService } from 'src/app/services/entities/guest.service';
 import { PorteService } from 'src/app/services/entities/porte.service';
 import { DepartmentService } from 'src/app/services/entities/department.service';
+
 @Component({
   selector: 'app-guest-edit',
   templateUrl: './guest-edit.component.html',
@@ -37,7 +38,7 @@ export class GuestEditComponent implements OnInit {
       doors: new FormControl('', [Validators.required]),
       cardNumber: new FormControl('', [Validators.required]),
       mobilePhone: new FormControl('', [Validators.required]),
-      birthdate: new FormControl('', [Validators.required]),
+      birthDate: new FormControl('', [Validators.required]),
       activationDate: new FormControl('', [Validators.required]),
       expirationDate: new FormControl('', [Validators.required]),
     });
@@ -72,10 +73,40 @@ export class GuestEditComponent implements OnInit {
     await this.guestService.getGuest(this.data.id)
     .then((resp:any) => {
       this.guest = resp;
+      this.guestEditForm.controls['firstName'].setValue(this.guest.firstName);
+      this.guestEditForm.controls['lastName'].setValue(this.guest.lastName);
+      this.guestEditForm.controls['cin'].setValue(this.guest.cin);
+      this.guestEditForm.controls['email'].setValue(this.guest.email);
+      this.guestEditForm.controls['cardNumber'].setValue(this.guest.cardNumber);
+      this.guestEditForm.controls['mobilePhone'].setValue(this.guest.mobilePhone);
     })
   }
 
   onSubmit() {
+    let doors = [parseInt(this.guestEditForm.get('doors').value)];
+    let department = [parseInt(this.guestEditForm.get('department').value)];
+    let guest = {
+      guestId: this.data.id,
+      firstName: this.guestEditForm.get('firstName').value,
+      lastName: this.guestEditForm.get('lastName').value,
+      gender: parseInt(this.guestEditForm.get('gender').value),
+      cin: this.guestEditForm.get('cin').value,
+      email: this.guestEditForm.get('email').value,
+      department: department,
+      doors: doors,
+      cardNumber: this.guestEditForm.get('cardNumber').value,
+      mobilePhone: this.guestEditForm.get('mobilePhone').value,
+      birthday: this.guestEditForm.get('birthDate').value,
+      activationDate: this.guestEditForm.get('activationDate').value,
+      expiryDate: this.guestEditForm.get('expirationDate').value
+    }
+    this.guestService.updateGuest(this.data.id, guest)
+    .then((resp:any) => {4
+      this.close();
+    })
+  }
 
+  close() {
+    this.dialogRef.close();
   }
 }

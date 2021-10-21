@@ -27,12 +27,12 @@
                 <td>{{guest.department}}</td>
                 <td>{{guest.doors}}</td>
                 <td>{{guest.cardNumber}}</td>
-                <td>{{guest.birthDate}}</td>
+                <td>{{guest.birthday}}</td>
                 <td>{{guest.activationDate}}</td>
-                <td>{{guest.expirationDate}}</td>
+                <td>{{guest.expiryDate}}</td>
                 <td>
-                    <button class="btn btn-warning" (click)="openEditGuest(guest.id)">Modifier</button>
-                    <button class="btn btn-danger" (click)="deleteGuest()">Supprimer</button>
+                    <button class="btn btn-warning" (click)="openEditGuest(guest.guestId)">Modifier</button>
+                    <button class="btn btn-danger" (click)="deleteGuest(guest.guestId)">Supprimer</button>
                 </td>
             </tr>
         </tbody>

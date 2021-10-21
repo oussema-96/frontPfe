@@ -8,13 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { SpinnerComponent } from './layouts/spinner/spinner.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { CookieService } from 'ngx-cookie-service';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 @NgModule({
   declarations: [
     AppComponent,
-    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +23,9 @@ import { CookieService } from 'ngx-cookie-service';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
+    MatFormFieldModule
   ],
   providers: [
     {

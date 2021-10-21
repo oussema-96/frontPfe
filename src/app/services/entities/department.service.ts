@@ -27,6 +27,7 @@ export class DepartmentService {
     }
 
     public updateDepartment(id, deparmtent) {
+        console.log(id);
         return this.http.put(this.baseUrl + 'Department?id=' + id, deparmtent).toPromise();
     }
 

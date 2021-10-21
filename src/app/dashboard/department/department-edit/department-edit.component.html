@@ -1,12 +1,11 @@
 <div class="content">
     <div class="container">
         <div class="form-div">
-            <form role="form" (ngSubmit)="onSubmit()">
+            <form role="form" [formGroup]="departmentEditForm" (ngSubmit)="onSubmit()">
                 <div class="form-content">
-                    <input type="hidden" formControlName="id" value="{{department.departmentId}}">
                     <div class="form-group">
                         <label for="name">Nom du departement</label>
-                        <input type="test" formControlName="name" class="form-control" value="{{department.departmentName}}">
+                        <input type="test" formControlName="departmentName" class="form-control">
                     </div>
                 </div>
                 <div class="button-div">

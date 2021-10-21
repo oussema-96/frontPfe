@@ -28,13 +28,13 @@
                 <td>{{personne.department}}</td>
                 <td>{{personne.doors}}</td>
                 <td>{{personne.cardNumber}}</td>
-                <td>{{personne.birthDate}}</td>
+                <td>{{personne.birthday}}</td>
                 <td>{{personne.activationDate}}</td>
-                <td>{{personne.expirationDate}}</td>
+                <td>{{personne.expiryDate}}</td>
                 <td>{{personne.position}}</td>
                 <td>
-                    <button class="btn btn-warning" (click)="openEditPersonne(personne.id)">Modifier</button>
-                    <button class="btn btn-danger" (click)="deletePersonne()">Supprimer</button>
+                    <button class="btn btn-warning" (click)="openEditPersonne(personne.personnelId)">Modifier</button>
+                    <button class="btn btn-danger" (click)="deletePersonne(personne.personnelId)">Supprimer</button>
                 </td>
             </tr>
         </tbody>

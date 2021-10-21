@@ -16,7 +16,7 @@ export class PersonneEditComponent implements OnInit {
   personne;
   porteList;
   departmentList;
-  personneAddForm: FormGroup;
+  personneEditForm: FormGroup;
   error = null;
   valid = true;
   submitted = false;
@@ -27,7 +27,7 @@ export class PersonneEditComponent implements OnInit {
     private porteService: PorteService,
     private departmentService: DepartmentService
   ) {
-    this.personneAddForm = new FormGroup({
+    this.personneEditForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
       gender: new FormControl('', [Validators.required]),
@@ -45,14 +45,15 @@ export class PersonneEditComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.personneAddForm.statusChanges.subscribe((status) => {
+    this.personneEditForm.statusChanges.subscribe((status) => {
       this.error = null;
       this.valid = status === FormStatusEnum.Valid;
     });
     this.getListDepartments();
+    this.getPersonne();
   }
 
-  get f() { return this.personneAddForm.controls; }
+  get f() { return this.personneEditForm.controls; }
 
   async getListDepartments() {    
     await this.departmentService.getListDepartments()
@@ -72,12 +73,44 @@ export class PersonneEditComponent implements OnInit {
     await this.personneService.getPersonne(this.data.id)
     .then((resp:any) => {
       this.personne = resp;
+      console.log(this.personne);
+      this.personneEditForm.controls['firstName'].setValue(this.personne.firstName);
+      this.personneEditForm.controls['lastName'].setValue(this.personne.lastName);
+      this.personneEditForm.controls['cin'].setValue(this.personne.cin);
+      this.personneEditForm.controls['email'].setValue(this.personne.email);
+      this.personneEditForm.controls['cardNumber'].setValue(this.personne.cardNumber);
+      this.personneEditForm.controls['mobilePhone'].setValue(this.personne.mobilePhone);
+      this.personneEditForm.controls['position'].setValue(this.personne.position);
     })
   }
 
   onSubmit() {
-
+    let doors = [parseInt(this.personneEditForm.get('doors').value)];
+    let department = [parseInt(this.personneEditForm.get('department').value)];
+    let personne = {
+      personnelId: this.data.id,
+      firstName: this.personneEditForm.get('firstName').value,
+      lastName: this.personneEditForm.get('lastName').value,
+      gender: parseInt(this.personneEditForm.get('gender').value),
+      cin: parseInt(this.personneEditForm.get('cin').value),
+      email: this.personneEditForm.get('email').value,
+      department: department,
+      doors: doors,
+      cardNumber: this.personneEditForm.get('cardNumber').value,
+      mobilePhone: parseInt(this.personneEditForm.get('mobilePhone').value),
+      birthday: this.personneEditForm.get('birthDate').value,
+      activationDate: this.personneEditForm.get('activationDate').value,
+      expiryDate: this.personneEditForm.get('expirationDate').value,
+      position: parseInt(this.personneEditForm.get('position').value)
+    }
+    this.personneService.updatePersonne(this.data.id, personne)
+    .then((resp:any) => {4
+      this.close();
+    })
   }
 
+  close() {
+    this.dialogRef.close();
+  }
 
 }

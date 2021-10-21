@@ -12,39 +12,44 @@ import { DepartmentService } from 'src/app/services/entities/department.service'
 export class DepartmentEditComponent implements OnInit {
 
   department;
-  departmentEditForm = new FormGroup({
-    departmentName: new FormControl('', [Validators.required])
-  });
+  departmentEditForm: FormGroup;
   error = null;
   valid = true;
   submitted = false;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {id: number}, public dialogRef: MatDialogRef<DepartmentEditComponent>, private departmentService: DepartmentService) { }
-
-  ngOnInit(): void {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {id: number}, public dialogRef: MatDialogRef<DepartmentEditComponent>, private departmentService: DepartmentService) { 
+    this.departmentEditForm = new FormGroup({
+      departmentName: new FormControl('', [Validators.required])
+    });
+  }
+  
+  async ngOnInit() {
     this.departmentEditForm.statusChanges.subscribe((status) => {
       this.error = null;
       this.valid = status === FormStatusEnum.Valid;
     });
-    this.getDepartment();
+    await this.getDepartment();
+    this.departmentEditForm.controls['departmentName'].setValue(this.department.departmentName);
   }
-
+  
   get f() { return this.departmentEditForm.controls; }
-
+  
   async getDepartment() {
-   await this.departmentService.getDepartment(this.data.id)
-   .then((resp:any) => {
-     this.department = resp;
+    await this.departmentService.getDepartment(this.data.id)
+    .then((resp:any) => {
+      this.department = resp;
    });
   }
 
   onSubmit() {
     let department = {
-      departmentName : this.departmentEditForm.get('name').value
+      departmentId: this.data.id,
+      departmentName : this.departmentEditForm.get('departmentName').value
     }
-    this.departmentService.updateDepartment(this.departmentEditForm.get('id').value, department)
+    this.departmentService.updateDepartment(this.data.id, department)
     .then(() => {
       this.ngOnInit();
+      this.close();
     })
   }
 

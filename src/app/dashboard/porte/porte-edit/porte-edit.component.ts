@@ -48,18 +48,21 @@ export class PorteEditComponent implements OnInit {
    await this.porteService.getPorte(this.data.id)
    .then((resp:any) => {
      this.porte = resp;
+     this.porteEditForm.controls['name'].setValue(this.porte.doorName);
    });
   }
   
   onSubmit() {
     let porte = {
-      porteName : this.porteEditForm.get('name').value,
-      porteType : this.porteEditForm.get('type').value,
-      departmentId : this.porteEditForm.get('departmentId').value
+      doorId: this.data.id,
+      doorName : this.porteEditForm.get('name').value,
+      typeDoor : parseInt(this.porteEditForm.get('type').value),
+      department : this.porteEditForm.get('departmentId').value
     }
-    this.porteService.updatePorte(this.porteEditForm.get('id').value, porte)
+    this.porteService.updatePorte(this.data.id, porte)
     .then(() => {
       this.ngOnInit();
+      this.close();
     })
   }
   

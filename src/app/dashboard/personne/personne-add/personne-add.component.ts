@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FormStatusEnum } from 'src/app/models/common/enums/form-status.enum';
 import { DepartmentService } from 'src/app/services/entities/department.service';
+import { PersonneService } from 'src/app/services/entities/personne.service';
 import { PorteService } from 'src/app/services/entities/porte.service';
 
 @Component({
@@ -17,7 +19,7 @@ export class PersonneAddComponent implements OnInit {
   error = null;
   valid = true;
   submitted = false;
-  constructor(private departmentService: DepartmentService, private porteService: PorteService) {
+  constructor(private departmentService: DepartmentService, private porteService: PorteService, private router: Router, private personneService: PersonneService) {
     this.personneAddForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
@@ -60,7 +62,27 @@ export class PersonneAddComponent implements OnInit {
   }
 
   onSubmit() {
-
+    let doors = [parseInt(this.personneAddForm.get('doors').value)];
+    let department = [parseInt(this.personneAddForm.get('department').value)];
+    let personne = {
+      firstName: this.personneAddForm.get('firstName').value,
+      lastName: this.personneAddForm.get('lastName').value,
+      gender: parseInt(this.personneAddForm.get('gender').value),
+      cin: this.personneAddForm.get('cin').value,
+      email: this.personneAddForm.get('email').value,
+      department: department,
+      doors: doors,
+      cardNumber: this.personneAddForm.get('cardNumber').value,
+      mobilePhone: this.personneAddForm.get('mobilePhone').value,
+      birthday: this.personneAddForm.get("birthDate").value,
+      activationDate: this.personneAddForm.get('activationDate').value,
+      expiryDate: this.personneAddForm.get("expirationDate").value,
+      position: parseInt(this.personneAddForm.get('position').value)
+    }
+    this.personneService.savePersonne(personne)
+    .then(() => {
+      this.router.navigate(['/personne']);
+    })
   }
 
 }

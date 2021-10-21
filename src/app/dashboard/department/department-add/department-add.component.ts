@@ -22,7 +22,6 @@ export class DepartmentAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.departmentAddForm.statusChanges.subscribe((status) => {
-      console.log(status);
       this.error = null;
       this.valid = status === FormStatusEnum.Valid;
     });
@@ -38,6 +37,7 @@ export class DepartmentAddComponent implements OnInit {
     this.departmentService.saveDepartment(department)
     .then(() => {
       this.ngOnInit();
+      this.close();
     });
   }
 

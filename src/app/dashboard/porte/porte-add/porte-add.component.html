@@ -18,9 +18,9 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="type">Department ID</label>
+                        <label for="type">Nom du departement</label>
                         <select class="form-control" formControlName="departmentId">
-                            <option *ngFor="let department of departmentList" [value]="department">test</option>
+                            <option *ngFor="let department of departmentList" [value]="department.departmentName">{{department.departmentName}}</option>
                         </select>
                     </div>
                 </div>

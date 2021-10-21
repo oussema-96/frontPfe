@@ -52,12 +52,13 @@ export class PorteAddComponent implements OnInit {
   onSubmit() {
     let porte = {
       doorName: this.porteAddForm.value.name,
-      typeDoor: this.porteAddForm.get('type').value,
-      departmentId: this.porteAddForm.get('departmentId').value
+      typeDoor: parseInt(this.porteAddForm.get('type').value),
+      department: this.porteAddForm.get('departmentId').value
     }
     this.porteService.savePorte(porte)
     .then(() => {
       this.ngOnInit();
+      this.close();
     })
   }
 

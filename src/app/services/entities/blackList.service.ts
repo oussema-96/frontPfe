@@ -7,34 +7,18 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 
-export class DoorService {
+export class BlackListService {
     baseUrl = environment.api;
 
     constructor(private http: HttpClient) {
 
     }
 
-    // public getDoors(id) {
-    //     return this.http.get()
-    // }
-
-    public getDoor(id) {
-        return this.http.get(this.baseUrl + 'Door/' + id).toPromise();
+    public getList(id) {
+        return this.http.get(this.baseUrl + 'BlackLists').toPromise();
     }
 
-    public saveDoor(deparmtent) {
-        return this.http.post(this.baseUrl + 'Door', deparmtent).toPromise();
-    }
-
-    public updateDoor(id, deparmtent) {
-        return this.http.put(this.baseUrl + 'Door?id=' + id, deparmtent).toPromise();
-    }
-
-    public getListDoors() {
-        return this.http.get(this.baseUrl + 'Door').toPromise();
-    }
-
-    public deleteDoor(id) {
-        return this.http.delete(this.baseUrl + 'Door/' + id).toPromise();
+    public deleteElement(id) {
+        return this.http.delete(this.baseUrl + 'BlackLists/' + id).toPromise();
     }
 }
