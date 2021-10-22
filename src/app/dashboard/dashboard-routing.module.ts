@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
     children: [
       { path: '', component: HomePageComponent },
       { path: 'guest', loadChildren: () => import('./guest/guest.module').then(m => m.GuestModule) },
